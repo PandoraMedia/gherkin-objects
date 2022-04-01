@@ -1,0 +1,53 @@
+data_table:
+  all_columns_same_width: false
+  blank_lines_after: 0
+  blank_lines_before: 0
+  cell_left_padding: 1
+  cell_min_width: 0
+  cell_right_padding: 1
+  indent: 10
+  padding_shared_with: table
+example_table:
+  all_columns_in_row_same_width: false
+  all_tables_in_outline_same_width: true
+  blank_lines_after: 0
+  blank_lines_before: 1
+  cell_left_padding: 1
+  cell_min_width: 10
+  cell_right_padding: 1
+  combine_tables_with_equivalent_tags: true
+  enforce_header_order: false
+  indent: 8
+  indent_row: 10
+feature:
+  blank_lines_after: 1
+  blank_lines_before: 0
+  indent: 0
+feature_description:
+  blank_lines_before: 0
+  indent: 2
+  preserve_internal_empty_lines: true
+  preserve_relative_indentation: true
+scenario:
+  blank_lines_before: 2
+  blank_lines_before_steps: 1
+  indent: 4
+scenario_description:
+  blank_lines_before: 0
+  indent: 6
+  preserve_internal_empty_lines: true
+  preserve_relative_indentation: true
+step:
+  indent: 8
+  keyword_policy: prefer_and
+  vertical_alignment: by_keyword
+tag:
+  alphabetize_tags: false
+  ensure_feature_uuid: false
+  ensure_scenario_uuid: false
+  tag_order_bottom:
+  - []
+  tag_order_top:
+  - - '@android'
+    - '@ios'
+    - '@web'

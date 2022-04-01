@@ -1,0 +1,2 @@
+gherkin-official<5
+PyYAML==5.4.1

@@ -1,0 +1,15 @@
+.*.swp
+*.pyc
+dist/
+*.egg-info
+.venv/
+venv/
+.tox/
+.coverage
+.DS_Store
+htmlcov/
+.idea/
+coverage.xml
+.coverage.*
+build/
+wheels/

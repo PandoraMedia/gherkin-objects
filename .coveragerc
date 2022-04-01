@@ -1,0 +1,10 @@
+[run]
+branch = True
+data_file = .coverage
+include = gherkin_objects/*
+omit =
+       .tox/*
+       .venv/*
+       venv/*
+       */.local/*
+       tests/*
