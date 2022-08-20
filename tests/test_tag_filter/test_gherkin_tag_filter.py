@@ -161,7 +161,30 @@ class GherkinTagFilterExceptionTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             GherkinTagFilter(input).evaluate([])
 
+    def test_unbalanced_parentheses___unclosed_open(self):
+        input = '(@tag1 and @tag2'
+        with self.assertRaises(ValueError):
+            GherkinTagFilter(input)
 
+    def test_unbalanced_parentheses___extra_close(self):
+        input = '(@tag1 and @tag2))'
+        with self.assertRaises(ValueError):
+            GherkinTagFilter(input)
+
+    def test_unbalanced_parentheses___wrong_order(self):
+        input = '@tag1) and @tag2('
+        with self.assertRaises(ValueError):
+            GherkinTagFilter(input)
+
+    def test_adjacent_tags(self):
+        input = '@tag1 @tag2'
+        with self.assertRaises(ValueError):
+            GherkinTagFilter(input)
+
+    def test_adjacent_tags___in_parens(self):
+        input = '(@tag1)(@tag2)'
+        with self.assertRaises(ValueError):
+            GherkinTagFilter(input)
 
 
 if __name__ == '__main__':
