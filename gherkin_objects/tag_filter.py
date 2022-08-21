@@ -30,7 +30,7 @@ class GherkinTagFilter:
 
         # No adjacent tags
         tag_pattern = r'@\S+'
-        match = re.search(rf'{tag_pattern}\s*{tag_pattern}', expression)
+        match = re.search(rf'{tag_pattern}[()\s]*{tag_pattern}', expression)
         if match:
             raise ValueError(
                 f'Adjacent tags with no operator: {match.group(0)}')
@@ -47,6 +47,10 @@ class GherkinTagFilter:
                 count += 1
             if char == ')':
                 count -= 1
+            if count < 0:
+                raise ValueError(f'Unbalanced parentheses: Unexpected closing parenthesis at char {i} in tag expression:'
+                                 f'\n{expression}'
+                                 f'\n{" " * (i)}^')
         if count != 0:
             raise ValueError(f'Unbalanced parentheses: {expression}')
 
